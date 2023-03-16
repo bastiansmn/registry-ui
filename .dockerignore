@@ -1,0 +1,7 @@
+node_modules
+.editorconfig
+package-lock.json
+README.md
+.vscode
+.github
+dist
