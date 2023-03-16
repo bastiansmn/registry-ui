@@ -2,28 +2,21 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: portfolio-ingress
-  namespace: portfolio
+  name: registry-ui-ingress
+  namespace: registry-ui
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-    - host: bastian-somon.fr
+    - host: registry.bastian-somon.fr
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-             service:
-              name: portfolio
-              port:
-                number: 80
-    - host: portfolio.bastian-somon.fr
-      http:
-        paths:
-          - path: /
+          - path: /ui(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: portfolio
+                name: registry-ui
                 port:
                   number: 80
