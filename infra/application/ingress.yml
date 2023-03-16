@@ -4,16 +4,13 @@ kind: Ingress
 metadata:
   name: registry-ui-ingress
   namespace: registry-ui
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-    - host: registry.bastian-somon.fr
+    - host: registry-ui.bastian-somon.fr
       http:
         paths:
-          - path: /ui(/|$)(.*)
+          - path: /
             pathType: Prefix
             backend:
               service:
