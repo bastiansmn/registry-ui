@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 COPY . ./
-RUN npm run build --prod --base-href=/ui
+RUN npm run build --omit="dev"
 
 FROM nginx:1.23.1-alpine
 RUN rm -rf /usr/share/nginx/html/*
