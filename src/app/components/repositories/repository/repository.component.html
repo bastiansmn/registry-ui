@@ -1,0 +1,14 @@
+<p-card class="p-2" *ngFor="let manifest of manifests">
+  <h1>
+    {{ repository }}
+  </h1>
+
+  <p>
+    <p-tag [value]="getManifestTag(manifest)"></p-tag>
+  </p>
+
+  <pre>
+    <!-- TODO -->
+    {{ manifest | json }}
+  </pre>
+</p-card>

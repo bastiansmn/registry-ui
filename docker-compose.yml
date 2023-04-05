@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  local-registry:
+    image: registry:latest
+    container_name: local-registry
+    restart: always
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./data:/var/lib/registry

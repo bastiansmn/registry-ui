@@ -1,0 +1,30 @@
+header {
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+nav {
+  @media screen and (max-width: 600px) {
+    &::ng-deep {
+      ul {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+app-home, app-repositories, app-settings {
+  display: inline-block;
+}

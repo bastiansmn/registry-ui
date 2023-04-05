@@ -1,0 +1,21 @@
+@import "src/variables";
+
+.status {
+  display: inline-block;
+  width: $status-badge-size;
+  height: $status-badge-size;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  &.success {
+    background: #53e153;
+  }
+
+  &.warning {
+    background: #eca156;
+  }
+
+  &.error {
+    background: #ff5454;
+  }
+}

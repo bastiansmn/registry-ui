@@ -1,0 +1,12 @@
+@import "src/variables";
+
+p-card {
+  app-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: .5rem;
+    width: $status-badge-size;
+    height: $status-badge-size;
+  }
+}

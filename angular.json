@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "registry-ui": {
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,6 +25,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": [
+              "fr"
+            ],
             "outputPath": "dist/registry-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,6 +41,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "primeng/resources/themes/mdc-dark-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
               "src/styles.scss"
             ],
             "scripts": []

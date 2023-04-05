@@ -1,0 +1,10 @@
+<p-card class="p-1" *ngFor="let repo of repositoriesSorted">
+  <h1 class="mb-2">
+    <a class="no-underline" [routerLink]="repo.name">{{ repo.name }}</a>
+  </h1>
+  <p>
+    <a class="no-underline" *ngFor="let tag of repo.tags" [routerLink]="repo.name" [queryParams]="{ tag: tag }">
+      <p-tag [value]="tag"></p-tag>
+    </a>
+  </p>
+</p-card>

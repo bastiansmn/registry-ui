@@ -1,0 +1,40 @@
+<p-card>
+  <form [formGroup]="registryForm">
+    <div class="flex flex-column gap-2 mb-4">
+      <label htmlFor="registryUrl" class="text-2xl mb-1">Registry URL</label>
+      <input
+        pInputText
+        id="registryUrl"
+        type="text"
+        placeholder="https://my.registry.com"
+        formControlName="registryUrl"/>
+      <small id="url-help">The URL of your registry</small>
+    </div>
+
+    <label class="flex">
+      <p-checkbox class="mr-2" formControlName="registryIsPrivate" [value]="true" id="isPrivate" inputId="isPrivate"></p-checkbox>
+      Private registry
+    </label>
+
+    <div *ngIf="registryForm.get('registryIsPrivate')?.value?.length > 0" class="flex flex-column gap-2 my-4">
+      <label htmlFor="registryUrl" class="text-2xl mb-1">Username</label>
+      <input
+        pInputText
+        id="registryUsername"
+        type="text"
+        placeholder="myusername"
+        formControlName="registryUsername"/>
+      <small id="username-help">The username of the basic auth</small>
+    </div>
+
+    <div *ngIf="registryForm.get('registryIsPrivate')?.value?.length > 0" class="flex flex-column gap-2 mb-4">
+      <label htmlFor="registryUrl" class="text-2xl mb-1">Password</label>
+      <p-password formControlName="registryPassword" [inputStyle]="{ width: '100%' }" [toggleMask]="true" [feedback]="false"></p-password>
+      <small id="password-help">Password of the registry</small>
+    </div>
+
+    <div class="controls flex">
+      <p-button class="ml-auto" [disabled]="registryForm.invalid" label="Submit" (onClick)="handleFormSubmit()"></p-button>
+    </div>
+  </form>
+</p-card>

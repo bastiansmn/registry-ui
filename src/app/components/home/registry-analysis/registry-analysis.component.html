@@ -1,0 +1,18 @@
+<p-card>
+  <h2 i18n>
+    <span>Registry health check</span>
+    <app-status [status]="status"></app-status>
+  </h2>
+
+  <p *ngIf="status === Status.UP">
+    Your registry is up and running. You can now push and pull images to and from it.
+  </p>
+
+  <p *ngIf="status === Status.DOWN">
+    Your registry is down. You can't push or pull images to and from it.
+  </p>
+
+  <small>
+    Last registry check: {{ lastPing | date: 'medium' }}
+  </small>
+</p-card>
